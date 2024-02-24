@@ -1,1 +1,63 @@
+import java.util.Scanner;
 
+public class Plataforma {
+    private Usuario[] usuarios;
+    private Curso[] cursosDisponibles;
+    private int numUsuarios;
+    private int numCursos;
+
+    public Plataforma() {
+        this.usuarios = new Usuario[10];
+        this.cursosDisponibles = new Curso[5];
+        this.numUsuarios = 0;
+        this.numCursos = 0;
+    }
+
+    public void agregarCurso(Curso curso) {
+        cursosDisponibles[numCursos++] = curso;
+    }
+
+    public void inscribirUsuario(Usuario usuario) {
+        usuarios[numUsuarios++] = usuario;
+    }
+
+    public void matricularUsuarioEnCurso(int usuarioIndex, int cursoIndex) {
+        usuarios[usuarioIndex].setCursoActual(cursosDisponibles[cursoIndex]);
+    }
+
+    public void mostrarOpciones() {
+        System.out.println("Bienvenido a la mejor plataforma de cursos sobre programacion ¡¡");
+        System.out.println("Seleccione una opción:");
+        System.out.println("1. Agregar curso");
+        System.out.println("2. Inscribir usuario");
+        System.out.println("3. Matricular usuario en curso");
+        System.out.println("4. Simular progreso del curso");
+    }
+
+    public static void main(String[] args) {
+        Plataforma plataforma = new Plataforma();
+        Scanner scanner = new Scanner(System.in);
+
+        while (true) {
+            plataforma.mostrarOpciones();
+            int opcion = scanner.nextInt();
+
+            switch (opcion) {
+                case 1:
+                    // Se agregara el curso
+                    break;
+                case 2:
+                    // Se agregara a el usuario
+                    break;
+                case 3:
+                    // En este punto el usuario se inscribira en cualquier curso
+                    break;
+                case 4:
+                    // Guardara el progreso del usuaario en el curso
+                    break;
+                default:
+                    System.out.println("Opción inválida")
+            }
+        }
+    }
+}
