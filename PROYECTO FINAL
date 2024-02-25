@@ -63,7 +63,72 @@ public class Plataforma {
 }
 
 import java.util.Scanner;
+import java.util.Scanner;
 
+public class fti {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner cursos = new Scanner(System.in);
+		System.out.println("Bienvenido a only en que curso desearia inscribirse");
+		System.out.println("1[Matematicas]");
+		System.out.println("2[Lenguaje]");
+		System.out.println("3[Sociales]");
+		System.out.println("4[Ingles]");
+		System.out.println("5[Historia]");
+		System.out.println("6[Salir]");
+
+		System.out.println("Por favor digite la opcion en la que se desea inscribir ");
+		int opcion = 0;
+		
+		do {
+			
+			 opcion = cursos.nextInt();
+			switch (opcion) {
+		case 1:
+		   Matematicas();
+			break;
+		case 2:
+			Lenguaje();
+			break;
+		case 3:
+			Sociales();
+			break;
+		case 4:
+			Ingles();
+			break;
+		case 5:
+			Historia();
+			break;
+		case 6:
+			break;
+		default:
+			System.out.println("Opcion Invalida");
+		}
+			
+		}while(opcion!=6);
+	
+		System.out.println("Fin del programa");
+
+	}
+	static void Matematicas(){
+		System.out.println("Escogio Matematicas");
+		
+	
+	}
+	static void Lenguaje() {
+		System.out.println("Escogio Lenguaje");
+	}
+	static void Sociales() {
+		System.out.println("Escogio Sociales");
+	}
+	static void Ingles() {
+		System.out.println("Escogio Ingles");
+	}
+	static void Historia() {
+		System.out.println("Escogio Historia");
+	}
+}
 public class Registrarse_IniciarSesión {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
