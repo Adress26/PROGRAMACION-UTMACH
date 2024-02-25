@@ -61,3 +61,61 @@ public class Plataforma {
         }
     }
 }
+
+import java.util.Scanner;
+
+public class Registrarse_IniciarSesión {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Registro de los usuarios
+        int numUsers;
+        String[] nombre;
+        String[] correoelectronico;
+        String[] contraseña;
+
+        System.out.println("¿Cuántos usuarios deseas registrar?");
+        numUsers = scanner.nextInt();
+        nombre = new String[numUsers];
+        correoelectronico = new String[numUsers];
+        contraseña = new String[numUsers];
+
+        for (int i = 0; i < numUsers; i++) {
+            System.out.println("Ingresa el nombre del usuario " + (i + 1));
+            nombre[i] = scanner.next();
+            System.out.println("Ingresa el correo electrónico del usuario " + nombre[i]);
+            correoelectronico[i] = scanner.next();
+            System.out.println("Ingresa la contraseña del usuario " + nombre[i]);
+            contraseña[i] = scanner.next();
+            System.out.println("¡Usuario registrado con éxito!");
+        }
+
+        // Inicio de sesión
+        boolean loggedIn = false;
+        int tries = 0;
+
+        while (!loggedIn && tries < 5) {
+            System.out.println("Ingresa tu nombre de usuario:");
+            String inputNombre = scanner.next();
+            System.out.println("Ingresa tu contraseña:");
+            String inputContraseña = scanner.next();
+
+            for (int i = 0; i < numUsers; i++) {
+                if (inputNombre.equals(nombre[i]) && inputContraseña.equals(contraseña[i])) {
+                    System.out.println("Acceso concedido. ¡Bienvenido, " + inputNombre + "!");
+                    loggedIn = true;
+                    break;
+                }
+            }
+
+            if (!loggedIn) {
+                System.out.println("Usuario o contraseña incorrectos. Intenta nuevamente.");
+                tries++;
+            }
+        }
+
+        if (!loggedIn) {
+            System.out.println("Has excedido el número máximo de intentos. El programa se detiene.");
+        }
+    }
+}
