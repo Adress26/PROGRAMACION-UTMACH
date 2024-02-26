@@ -1,48 +1,41 @@
-public class Course {
-    private String name;
-
-    public Course(String name) {
-        this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-}
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Plataforma {
     // ... (Otros)
 
-    private Course[] cursosDisponibles;
+    private ArrayList<User> usuarios;
+    private ArrayList<Course> cursosDisponibles;
 
     public Plataforma() {
-        // ... (inicializar)
-        this.cursosDisponibles = new Course[5];
-    }
-
-    public void agregarCurso(Course curso) {
-        cursosDisponibles[numCursos++] = curso;
+        // ... (Inicializar)
+        this.usuarios = new ArrayList<>();
+        this.cursosDisponibles = new ArrayList<>();
     }
 
     // ... (Otros metodos)
 
-    public void mostrarCursos() {
-        System.out.println("Seleccione un curso:");
-        for (int i = 0; i < numCursos; i++) {
-            System.out.println((i + 1) + ". " + cursosDisponibles[i].getName());
-        }
+    public void agregarUsuario(User usuario) {
+        usuarios.add(usuario);
+    }
+
+    public void agregarCurso(Course curso) {
+        cursosDisponibles.add(curso);
+    }
+
+    public void matricularUsuarioEnCurso(int userIndex, int courseIndex) {
+        usuarios.get(userIndex).matricularCurso(cursosDisponibles.get(courseIndex));
+    }
+
+    public void mostrarProgresoCurso(int userIndex, int courseIndex) {
+        System.out.println("Progreso del curso: " + usuarios.get(userIndex).getProgresoCurso(cursosDisponibles.get(courseIndex).getName()));
     }
 
     public static void main(String[] args) {
         Plataforma plataforma = new Plataforma();
         Scanner scanner = new Scanner(System.in);
 
-        // Agregar mas cursos en caso de ser necesario
+        // Agregar mas cursos
         plataforma.agregarCurso(new Course("Matematicas"));
         plataforma.agregarCurso(new Course("Lenguaje"));
         plataforma.agregarCurso(new Course("Sociales"));
@@ -59,11 +52,18 @@ public class Plataforma {
                     int courseOption = scanner.nextInt();
                     plataforma.matricularUsuarioEnCurso(0, courseOption - 1);
                     break;
-                // ...
+                case 2:
+                    plataforma.mostrarProgresoCurso(0, 0);
+                    break;
+                case 3:
+                    plataforma.registrarUsuario();
+                    break;
+                case 4:
+                    plataforma.iniciarSesion();
+                    break;
                 default:
                     System.out.println("Opción inválida");
             }
         }
     }
 }
-
