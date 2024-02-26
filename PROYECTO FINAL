@@ -65,7 +65,7 @@ public class Plataforma {
 import java.util.Scanner;
 import java.util.Scanner;
 
-public class fti {
+
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -183,4 +183,4 @@ public class Registrarse_IniciarSesión {
             System.out.println("Has excedido el número máximo de intentos. El programa se detiene.");
         }
     }
-}
+
