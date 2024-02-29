@@ -1,69 +1,162 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Plataforma {
-    // ... (Otros)
+import javax.sound.midi.Soundbank;
 
-    private ArrayList<User> usuarios;
-    private ArrayList<Course> cursosDisponibles;
+public class fti {
+	static Scanner scanner= new Scanner(System.in);
+	private static int tries;
+	private static boolean loggedIn;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Bienvenido a Cursos online M,T & G en que curso desearia inscribirse");
+		System.out.println("1[Matematicas]");
+		System.out.println("2[Lenguaje]");
+		System.out.println("3[Sociales]");
+		System.out.println("4[Ingles]");
+		System.out.println("5[Historia]");
+		System.out.println("6[Salir]");
 
-    public Plataforma() {
-        // ... (Inicializar)
-        this.usuarios = new ArrayList<>();
-        this.cursosDisponibles = new ArrayList<>();
-    }
+		System.out.println("Por favor digite la opcion en la que se desea inscribir ");
+		int opcion = 0;
+		
+		do {
+			
+			 opcion = scanner.nextInt();
+			switch (opcion) {
+		case 1:
+		   Matematicas();
+			break;
+		case 2:
+			Lenguaje();
+			break;
+		case 3:
+			Sociales();
+			break;
+		case 4:
+			Ingles();
+			break;
+		case 5:
+			Historia();
+			break;
+		case 6:
+			break;
+		default:
+			System.out.println("Opcion Invalida");
+		}
+			
+		}while(opcion!=6);
+	
+		System.out.println("Fin del programa");
 
-    // ... (Otros metodos)
+	}
+	static void Matematicas(){
+		System.out.println("Escogio Matematicas");
+		 int numUsers;
+	        String[] nombre;
+	        String[] correoelectronico;
+	        String[] contraseña;
+	        System.out.println("Presione 1 para continuar");
+	        numUsers = scanner.nextInt();
+	        nombre = new String[numUsers];
+	        correoelectronico = new String[numUsers];
+	        contraseña = new String[numUsers];
 
-    public void agregarUsuario(User usuario) {
-        usuarios.add(usuario);
-    }
+	        for (int i = 0; i < numUsers; i++) {
+	            System.out.println("Ingresa el nombre del usuario " + (i + 1));
+	            nombre[i] = scanner.next();
+	            System.out.println("Ingresa el correo electrónico del usuario " + nombre[i]);
+	            correoelectronico[i] = scanner.next();
+	            System.out.println("Ingresa la contraseña del usuario " + nombre[i]);
+	            contraseña[i] = scanner.next();
+	            System.out.println("¡Usuario registrado con éxito!");
+	        }
+	}
+	static void Lenguaje() {
+		System.out.println("Escogio Lenguaje");
+		 int numUsers;
+	        String[] nombre;
+	        String[] correoelectronico;
+	        String[] contraseña;
+	        System.out.println("Presione 1 para continuar");
+	        numUsers = scanner.nextInt();
+	        nombre = new String[numUsers];
+	        correoelectronico = new String[numUsers];
+	        contraseña = new String[numUsers];
 
-    public void agregarCurso(Course curso) {
-        cursosDisponibles.add(curso);
-    }
+	        for (int i = 0; i < numUsers; i++) {
+	            System.out.println("Ingresa el nombre del usuario " + (i + 1));
+	            nombre[i] = scanner.next();
+	            System.out.println("Ingresa el correo electrónico del usuario " + nombre[i]);
+	            correoelectronico[i] = scanner.next();
+	            System.out.println("Ingresa la contraseña del usuario " + nombre[i]);
+	            contraseña[i] = scanner.next();
+	            System.out.println("Usuario registrado con éxito");
+	        }
+	}
+	static void Sociales() {
+		System.out.println("Escogio Sociales");
+		int numUsers;
+        String[] nombre;
+        String[] correoelectronico;
+        String[] contraseña;
+        System.out.println("Presione 1 para continuar");
+        numUsers = scanner.nextInt();
+        nombre = new String[numUsers];
+        correoelectronico = new String[numUsers];
+        contraseña = new String[numUsers];
 
-    public void matricularUsuarioEnCurso(int userIndex, int courseIndex) {
-        usuarios.get(userIndex).matricularCurso(cursosDisponibles.get(courseIndex));
-    }
-
-    public void mostrarProgresoCurso(int userIndex, int courseIndex) {
-        System.out.println("Progreso del curso: " + usuarios.get(userIndex).getProgresoCurso(cursosDisponibles.get(courseIndex).getName()));
-    }
-
-    public static void main(String[] args) {
-        Plataforma plataforma = new Plataforma();
-        Scanner scanner = new Scanner(System.in);
-
-        // Agregar mas cursos
-        plataforma.agregarCurso(new Course("Matematicas"));
-        plataforma.agregarCurso(new Course("Lenguaje"));
-        plataforma.agregarCurso(new Course("Sociales"));
-        plataforma.agregarCurso(new Course("Ingles"));
-        plataforma.agregarCurso(new Course("Historia"));
-
-        while (true) {
-            plataforma.mostrarOpciones();
-            int opcion = scanner.nextInt();
-
-            switch (opcion) {
-                case 1:
-                    plataforma.mostrarCursos();
-                    int courseOption = scanner.nextInt();
-                    plataforma.matricularUsuarioEnCurso(0, courseOption - 1);
-                    break;
-                case 2:
-                    plataforma.mostrarProgresoCurso(0, 0);
-                    break;
-                case 3:
-                    plataforma.registrarUsuario();
-                    break;
-                case 4:
-                    plataforma.iniciarSesion();
-                    break;
-                default:
-                    System.out.println("Opción inválida");
-            }
+        for (int i = 0; i < numUsers; i++) {
+            System.out.println("Ingresa el nombre del usuario " + (i + 1));
+            nombre[i] = scanner.next();
+            System.out.println("Ingresa el correo electrónico del usuario " + nombre[i]);
+            correoelectronico[i] = scanner.next();
+            System.out.println("Ingresa la contraseña del usuario " + nombre[i]);
+            contraseña[i] = scanner.next();
+            System.out.println("¡Usuario registrado con éxito!");
         }
-    }
+	}
+	static void Ingles() {
+		System.out.println("Escogio Ingles");
+		int numUsers;
+        String[] nombre;
+        String[] correoelectronico;
+        String[] contraseña;
+        System.out.println("Presione 1 para continuar");
+        numUsers = scanner.nextInt();
+        nombre = new String[numUsers];
+        correoelectronico = new String[numUsers];
+        contraseña = new String[numUsers];
+
+        for (int i = 0; i < numUsers; i++) {
+            System.out.println("Ingresa el nombre del usuario " + (i + 1));
+            nombre[i] = scanner.next();
+            System.out.println("Ingresa el correo electrónico del usuario " + nombre[i]);
+            correoelectronico[i] = scanner.next();
+            System.out.println("Ingresa la contraseña del usuario " + nombre[i]);
+            contraseña[i] = scanner.next();
+            System.out.println("¡Usuario registrado con éxito!");
+        }
+	}
+	static void Historia() {
+		System.out.println("Escogio Historia");
+		int numUsers;
+        String[] nombre;
+        String[] correoelectronico;
+        String[] contraseña;
+        System.out.println("Presione 1 para continuar");
+        numUsers = scanner.nextInt();
+        nombre = new String[numUsers];
+        correoelectronico = new String[numUsers];
+        contraseña = new String[numUsers];
+
+        for (int i = 0; i < numUsers; i++) {
+            System.out.println("Ingresa el nombre del usuario " + (i + 1));
+            nombre[i] = scanner.next();
+            System.out.println("Ingresa el correo electrónico del usuario " + nombre[i]);
+            correoelectronico[i] = scanner.next();
+            System.out.println("Ingresa la contraseña del usuario " + nombre[i]);
+            contraseña[i] = scanner.next();
+            System.out.println("¡Usuario registrado con éxito!");
+        }
+	}
 }
